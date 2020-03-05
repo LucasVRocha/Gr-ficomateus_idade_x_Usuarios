@@ -1,0 +1,38 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+a = pd.read_csv("/home/lucas/PycharmProjects/aulas.youtube/02.csv", sep=';')
+b =(a[5575:5581])
+x = str(b['id']).split()
+y = str(b['num']).split()
+x1 = list()
+y1 = list()
+print(x)
+for c in enumerate(x):
+    if (c[0] % 2 == 1):
+        x1.append(c[1])
+
+for c in enumerate(y):
+    if (c[0] % 2 == 1):
+        y1.append(c[1])
+
+y1.pop()
+y1.pop()
+x1.pop()
+x1.pop()
+x = x1
+y = y1
+x.reverse()
+y.reverse()
+
+print(x)
+print(y)
+
+plt.bar(x, y, color = "red")
+plt.xlabel('Idade')
+plt.ylabel('Usuários')
+plt.title('Idade x Usuários')
+#plt.grid(True)
+plt.show()
